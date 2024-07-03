@@ -1,0 +1,42 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // 使用 IntelliSense 找出 C# 偵錯具有哪些屬性
+            // 針對現有屬性的描述使用暫留
+            // 如需詳細資訊，請造訪 https://github.com/dotnet/vscode-csharp/blob/main/debugger-launchjson.md
+            "name": "telem2Cot Debug",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            // 如果您已變更目標 Framework，請務必更新程式路徑。
+            "program": "${workspaceFolder}/bin/Debug/net8.0/telem2CoT.dll",
+            "args": [
+                "172.28.1.51",
+                "--tak-port",
+                "8087",
+                "--tak-protocol",
+                "tcp",
+                "--source-video-url",
+                "rtsp://10.193.1.160:554/uav02_eo?key=circ",
+                "--dest-video-url",
+                "rtsp://video.tfn.mil.tw:8554/live/RWUAS",
+                "--callsign",
+                "RWUAS",
+                "--bitrate",
+                "800k",
+                "--resolution",
+                "640:480"
+            ],
+            "cwd": "${workspaceFolder}",
+            // 如需 [主控台] 欄位的詳細資訊，請參閱 https://aka.ms/VSCode-CS-LaunchJson-Console
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
+        }
+    ]
+}

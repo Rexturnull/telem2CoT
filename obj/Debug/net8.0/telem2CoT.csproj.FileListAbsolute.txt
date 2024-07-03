@@ -1,0 +1,14 @@
+C:\Users\mnd\Downloads\telem2CoT\bin\Debug\net8.0\telem2CoT.exe
+C:\Users\mnd\Downloads\telem2CoT\bin\Debug\net8.0\telem2CoT.deps.json
+C:\Users\mnd\Downloads\telem2CoT\bin\Debug\net8.0\telem2CoT.runtimeconfig.json
+C:\Users\mnd\Downloads\telem2CoT\bin\Debug\net8.0\telem2CoT.dll
+C:\Users\mnd\Downloads\telem2CoT\bin\Debug\net8.0\telem2CoT.pdb
+C:\Users\mnd\Downloads\telem2CoT\obj\Debug\net8.0\telem2CoT.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mnd\Downloads\telem2CoT\obj\Debug\net8.0\telem2CoT.AssemblyInfoInputs.cache
+C:\Users\mnd\Downloads\telem2CoT\obj\Debug\net8.0\telem2CoT.AssemblyInfo.cs
+C:\Users\mnd\Downloads\telem2CoT\obj\Debug\net8.0\telem2CoT.csproj.CoreCompileInputs.cache
+C:\Users\mnd\Downloads\telem2CoT\obj\Debug\net8.0\telem2CoT.dll
+C:\Users\mnd\Downloads\telem2CoT\obj\Debug\net8.0\refint\telem2CoT.dll
+C:\Users\mnd\Downloads\telem2CoT\obj\Debug\net8.0\telem2CoT.pdb
+C:\Users\mnd\Downloads\telem2CoT\obj\Debug\net8.0\telem2CoT.genruntimeconfig.cache
+C:\Users\mnd\Downloads\telem2CoT\obj\Debug\net8.0\ref\telem2CoT.dll
