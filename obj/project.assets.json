@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mnd\\Downloads\\telem2CoT\\telem2CoT.csproj",
+      "projectUniqueName": "C:\\Users\\mnd\\Desktop\\Drone\\telem2CoT\\telem2CoT.csproj",
       "projectName": "telem2CoT",
-      "projectPath": "C:\\Users\\mnd\\Downloads\\telem2CoT\\telem2CoT.csproj",
+      "projectPath": "C:\\Users\\mnd\\Desktop\\Drone\\telem2CoT\\telem2CoT.csproj",
       "packagesPath": "C:\\Users\\mnd\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mnd\\Downloads\\telem2CoT\\obj\\",
+      "outputPath": "C:\\Users\\mnd\\Desktop\\Drone\\telem2CoT\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -37,7 +37,6 @@ class Program
 
         UdpClient udpClient = new UdpClient(config.ListenPort);
         IPEndPoint remoteEndPoint = new IPEndPoint(IPAddress.Any, 0);
-        //IPEndPoint localEndPoint = new IPEndPoint(IPAddress.Parse("10.193.1.160"), 0);
         string cotGuid = Guid.NewGuid().ToString();
 
         if (!FFmpegChecker.IsFFmpegInstalled())
@@ -58,7 +57,6 @@ class Program
 
         var ffmpegArguments = $"-i {config.SourceVideoUrl} -r 30 -q:v 2 -b:v {config.VideoPublishBitrate} -s {config.VideoPublishResolution} -c:v libx264 -f rtsp {config.DestVideoUrl}";
         //var ffmpegArguments_2 = $"-i rtsp://10.193.1.160:554/uav01_eo?key=circ -r 30 -q:v 2 -b:v 500k -s 426x240 -c:v libx264 -f rtsp rtsp://video.tfn.mil.tw:8554/live/RWUAS";
-        //var ffmpegArguments_2 = $"-i rtsp://10.193.1.160:554/uav02_eo?key=circ -r 30 -q:v 2 -b:v 800k -s 640x480 -c:v libx264 -f rtsp rtsp://172.31.4.1:8554/live/RWUAS";
 
         //ffmpeg -i rtsp://10.193.1.160:554/uav02_eo?key=circ -r 30 -q:v 2 -b:v 800k -s 640x480 -c:v libx264 -f rtsp rtsp://video.tfn.mil.tw:8554/live/RWUAS
 
@@ -262,11 +260,11 @@ class Program
                         LrfLongitude = lrfTargetLongitude
                     };
 
-                    string cotData = CreateCoTMessage(tp, config.DestVideoUrl);
+                    string cotData = CreateCoTMessage(tp, config.DestVideoUrl, config.Callsign);
 
                     if (config.Debug)
                     {
-                        Console.WriteLine(cotData);
+                        //Console.WriteLine(cotData);
                         Console.WriteLine("Pressure Altitude: " + tp.GetUavPressureAltitudeMeters());
                         Console.WriteLine("GPS Altitude: " + tp.GetUavGPSAltitudeMeters());
                     }
@@ -289,7 +287,7 @@ class Program
         }
     }
 
-    static string CreateCoTMessage(TelemetryPayload telemetryPayload, String videoUrl)
+    static string CreateCoTMessage(TelemetryPayload telemetryPayload, String videoUrl, String CallSign)
     // Example CoT detail
     // <detail>
     // <__video url='rtsp://foo' sensor='123'/>
@@ -326,7 +324,7 @@ class Program
                 ),
                 // TODO: update callsign
                 new XElement("contact",
-                    new XAttribute("callsign", "RW UAS")
+                    new XAttribute("callsign", CallSign)
                 ),
                 new XElement("status",
                     new XAttribute("battery", "0")
@@ -521,11 +519,11 @@ class Program
         Thread.Sleep(3000);
 
 
-        string filePath = "banner.ans";
-        string asciiContent = File.ReadAllText(filePath);
-        Console.WriteLine(asciiContent);
+        //string filePath = "banner.ans";
+        //string asciiContent = File.ReadAllText(filePath);
+        //Console.WriteLine(asciiContent);
 
-        Thread.Sleep(3000);
+        //Thread.Sleep(3000);
 
     }
 
