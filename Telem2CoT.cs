@@ -50,28 +50,14 @@ class Program
         }
 
 
-
-
         // Specify the video resolution and bitrate in arg
-        //var ffmpegArguments = $"-i {config.SourceVideoUrl} -c:v libx264 -b:v {config.VideoPublishBitrate} -vf scale={config.VideoPublishResolution} -f rtsp -rtsp_transport tcp {config.DestVideoUrl}";
-
         var ffmpegArguments = $"-i {config.SourceVideoUrl} -r 30 -q:v 2 -b:v {config.VideoPublishBitrate} -s {config.VideoPublishResolution} -c:v libx264 -f rtsp {config.DestVideoUrl}";
-        //var ffmpegArguments_2 = $"-i rtsp://10.193.1.160:554/uav01_eo?key=circ -r 30 -q:v 2 -b:v 500k -s 426x240 -c:v libx264 -f rtsp rtsp://video.tfn.mil.tw:8554/live/RWUAS";
-
-        //ffmpeg -i rtsp://10.193.1.160:554/uav02_eo?key=circ -r 30 -q:v 2 -b:v 800k -s 640x480 -c:v libx264 -f rtsp rtsp://video.tfn.mil.tw:8554/live/RWUAS
-
 
         // Thread ffmpegThread = new Thread(() => FFmpegLauncher.LaunchFFmpeg(ffmpegArguments));
         // ffmpegThread.Start();
         //Task.Run(() => FFmpegLauncher.LaunchFFmpeg(ffmpegArguments_1));
         Task.Run(() => FFmpegLauncher.LaunchFFmpeg(ffmpegArguments));
 
-        // FFmpegLauncher.LaunchFFmpeg(ffmpegArguments);
-
-        // Console.WriteLine("Listening for telemetry data on port {0}", config.ListenPort);
-        // Console.WriteLine("Sending CoT to {0}:{1}", config.TakIp, config.TakPort);
-        // Console.WriteLine("Tak protocol: {0}", config.TakProtocol.ToString());
-        // Console.WriteLine("Callsign: {0}", config.Callsign);
 
         Console.WriteLine("============================RTSP============================");
         Console.WriteLine("SourceVideoUrl         : {0}", config.SourceVideoUrl);
@@ -93,13 +79,10 @@ class Program
         {
             while (true)
             {
-                //Console.WriteLine("remoteEndPoint: ", remoteEndPoint);
 
                 byte[] payload = udpClient.Receive(ref remoteEndPoint);
-                //Console.WriteLine("payload: ", payload.Length);
 
-
-                if (payload.Length >= 86)
+                if (payload.Length >= 80)
                 {
                     int offset = 0;
 
@@ -264,7 +247,7 @@ class Program
 
                     if (config.Debug)
                     {
-                        //Console.WriteLine(cotData);
+                        Console.WriteLine(cotData);
                         Console.WriteLine("Pressure Altitude: " + tp.GetUavPressureAltitudeMeters());
                         Console.WriteLine("GPS Altitude: " + tp.GetUavGPSAltitudeMeters());
                     }
