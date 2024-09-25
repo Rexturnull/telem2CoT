@@ -1,3 +1,16 @@
+# Internet
+```bash
+netsh interface ipv4 show interfaces
+netsh interface ipv4 set address interface=12 static 10.193.1.161 255.255.255.0 10.193.1.1
+
+netsh interface set interface name="12" admin=disable
+netsh interface set interface name="12" admin=enable
+```
+Collision IP
+```bash
+Event > System
+```
+
 # Execute
 ```bash
 dotnet new console
