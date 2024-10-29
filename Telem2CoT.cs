@@ -69,6 +69,7 @@ class Program
         Console.WriteLine("Starting ffmpeg video stream capture from {0} and sending to {1}", config.SourceVideoUrl, config.DestVideoUrl);
 
         Console.WriteLine("============================Cot============================");
+        Console.WriteLine("TakPort    : {0}", config.TakPort);
         Console.WriteLine("ListenPort : {0}", config.ListenPort);
 
 
@@ -247,9 +248,9 @@ class Program
 
                     if (config.Debug)
                     {
-                        Console.WriteLine(cotData);
+                        //Console.WriteLine(cotData);
                         Console.WriteLine("Pressure Altitude: " + tp.GetUavPressureAltitudeMeters());
-                        Console.WriteLine("GPS Altitude: " + tp.GetUavGPSAltitudeMeters());
+                        Console.WriteLine("GPS : " + tp.GetUavLongitude + "," + tp.GetUavLatitude);
                     }
 
                     SendCoTDataOverTcp(cotData, config.TakIp, config.TakPort);

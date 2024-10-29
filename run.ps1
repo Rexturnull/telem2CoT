@@ -1,12 +1,13 @@
 ﻿# ============arguments for user============
 # Define the arguments to pass to your program
 $args = @(
-    "--listen-port",      "6060",
+    "--listen-port", "6060",
     "--source-video-url", "rtsp://10.193.1.160:554/uav02_eo?key=circ",
-    "--dest-video-url",   "rtsp://video.tfn.mil.tw:8554/live/RWUAS",
-    "--callsign",         "RWUAS",
-    "--bitrate",          "800k",     #300k/600k/800k
-    "--resolution",       "640:480"   #426:240/640:360/640:480
+    "--dest-video-url", "rtsp://video.tfn.mil.tw:8554/live/RWUAS",
+    "--callsign", "RWUAS",
+    "--bitrate", "800k", #300k/600k/800k
+    "--resolution", "640:480", #426:240/640:360/640:480
+    "--tak-port", "8088"
 )
 
 # ============Function============
@@ -43,10 +44,12 @@ function Kill-ProcessesUsingPort {
                 Stop-Process -Id $processId -Force
                 Write-Color "Killed process with Process ID: $processId" "Yellow"
             }
-        } else {
+        }
+        else {
             Write-Color "No processes found using port $Port" "Green"
         }
-    } else {
+    }
+    else {
         Write-Color "No processes found using port $Port" "Green"
     }
 }
@@ -92,7 +95,8 @@ if ($portIndex -ne -1 -and $portIndex + 1 -lt $args.Length) {
     $port = [int]$port
     Write-Color "Checking processes using port $port..." "Green"
     Kill-ProcessesUsingPort -Port $port
-} else {
+}
+else {
     Write-Host "Listen-port argument not found in arguments."
 }
 
@@ -113,7 +117,8 @@ try {
     # Check if process exited successfully
     if ($process.ExitCode -eq 0) {
         Write-Color "Process exited successfully." "Green"
-    } else {
+    }
+    else {
         Write-Color "Process exited with error code $($process.ExitCode)." "Red"
     }
 }

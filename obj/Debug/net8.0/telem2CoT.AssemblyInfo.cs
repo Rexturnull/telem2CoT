@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("telem2CoT")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bfa3a288e5049d1d0bfbc5d834fc778c70822f22")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dfb91544760fad3e04b01d46a5080e00677244d6")]
 [assembly: System.Reflection.AssemblyProductAttribute("telem2CoT")]
 [assembly: System.Reflection.AssemblyTitleAttribute("telem2CoT")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
