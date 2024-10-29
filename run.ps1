@@ -1,13 +1,13 @@
 ﻿# ============arguments for user============
 # Define the arguments to pass to your program
 $args = @(
-    "--listen-port", "6060",
+    "--listen-port"     , "6060",
     "--source-video-url", "rtsp://10.193.1.160:554/uav02_eo?key=circ",
-    "--dest-video-url", "rtsp://video.tfn.mil.tw:8554/live/RWUAS",
-    "--callsign", "RWUAS",
-    "--bitrate", "800k", #300k/600k/800k
-    "--resolution", "640:480", #426:240/640:360/640:480
-    "--tak-port", "8088"
+    "--dest-video-url"  , "rtsp://video.tfn.mil.tw:8554/live/RWUAS",
+    "--callsign"        , "RWUAS",
+    "--bitrate"         , "800k", #300k/600k/800k
+    "--resolution"      , "640:480", #426:240/640:360/640:480
+    "--tak-port"        , "8088"
 )
 
 # ============Function============
