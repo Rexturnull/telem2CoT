@@ -57,3 +57,19 @@ Task Configuration: .vscode/tasks.json
 You can set up common commands (e.g., build, test, publish, deploy) 
 and use VSCode to initiate the tasks defined here.
 ```
+
+# FFmpeg
+```bash
+# mediamtx Server
+https://github.com/bluenviron/mediamtx/releases
+
+# Local
+ffmpeg -re -stream_loop -1 -i fish.mp4 -c:v libx264 -f rtsp rtsp://localhost:8554/mystream
+
+# Play
+ffplay -rtsp_transport tcp rtsp://10.193.1.160:554/uav02_eo?key=circ
+vlc rtsp://localhost:8554/mystream
+
+# Upload
+ffmpeg -rtsp_transport tcp -i rtsp://10.193.1.160:554/uav02_eo?key=circ -rw_timeout 5000000 -r 30 -q:v 2 -b:v 500k -s 640x360 -c:v libx264 -f rtsp rtsp://video.tfn.mil.tw:8554/live/TEST
+```
