@@ -51,11 +51,8 @@ class Program
 
 
         // Specify the video resolution and bitrate in arg
-        var ffmpegArguments = $"-i {config.SourceVideoUrl} -r 30 -q:v 2 -b:v {config.VideoPublishBitrate} -s {config.VideoPublishResolution} -c:v libx264 -f rtsp {config.DestVideoUrl}";
+        var ffmpegArguments = $"-rtsp_transport tcp -i {config.SourceVideoUrl} -rw_timeout 5000000 -r 30 -q:v 2 -b:v {config.VideoPublishBitrate} -s {config.VideoPublishResolution} -c:v libx264 -f rtsp {config.DestVideoUrl}";
 
-        // Thread ffmpegThread = new Thread(() => FFmpegLauncher.LaunchFFmpeg(ffmpegArguments));
-        // ffmpegThread.Start();
-        //Task.Run(() => FFmpegLauncher.LaunchFFmpeg(ffmpegArguments_1));
         Task.Run(() => FFmpegLauncher.LaunchFFmpeg(ffmpegArguments));
 
 
@@ -250,7 +247,7 @@ class Program
                     {
                         //Console.WriteLine(cotData);
                         Console.WriteLine("Pressure Altitude: " + tp.GetUavPressureAltitudeMeters());
-                        Console.WriteLine("GPS : " + tp.GetUavLongitude + "," + tp.GetUavLatitude);
+                        Console.WriteLine("GPS : " + tp.GetUavLongitude() + "," + tp.GetUavLatitude());
                     }
 
                     SendCoTDataOverTcp(cotData, config.TakIp, config.TakPort);
